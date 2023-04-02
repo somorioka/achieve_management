@@ -10,9 +10,9 @@ class ChangeNumber extends StatefulWidget {
   final int achievenumber;
   final int index;
 
-  const ChangeNumber(
+   ChangeNumber(
       this.textbookTitle, this.textbookNumber, this.achievenumber, this.index,
-      {super.key});
+       {super.key});
 
   @override
   State<ChangeNumber> createState() => _ChangeNumberState();
@@ -22,9 +22,10 @@ class _ChangeNumberState extends State<ChangeNumber> {
   int _currentIntValue = 0;
 
   @override
-void initState() {
-_currentIntValue = widget.achievenumber;
-}
+  void initState() {
+    super.initState();
+    _currentIntValue = widget.achievenumber;
+    }
 
   @override
   Widget build(BuildContext context) {
@@ -77,11 +78,6 @@ _currentIntValue = widget.achievenumber;
                 Provider.of<TextBookData>(context, listen: false)
                     .updateAchieveNumber(widget.index, _currentIntValue);
                 Navigator.pop(context);
-                //                    Navigator.of(context).push(
-                //   MaterialPageRoute(
-                //     builder: (context) =>  PieChartScreen(widget.textbookTitle, widget.textbookNumber, widget.index , widget.achievenumber),
-                //   ),
-                // );
               },
               child: Text(
                 "保存する",

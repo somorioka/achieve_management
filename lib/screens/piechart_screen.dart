@@ -19,20 +19,26 @@ class PieChartScreen extends StatefulWidget {
 }
 
 class _PieChartScreenState extends State<PieChartScreen> {
-  //ここを動的にしてみせる。
-  var dataMap = <String, double>{
-    "完了": 15,
-    "未達成": 30,
-  };
+  double complitenum = 0.0;
+  double uncomplitenum = 0.0;
+
+  @override
+  void initState() {
+    super.initState();
+    complitenum = widget.achievenumber.toDouble();
+    uncomplitenum = (widget.textbookNumber - widget.achievenumber).toDouble();
+    }
+
+  // //ここを動的にしてみせる。
+  //   Map<String, double> dataMap = <String, double>{
+  //   "完了": complitenum,
+  //   "未達成": 200,
+  // };
 
   final colorList = <Color>[
     Color.fromARGB(255, 103, 202, 77),
     Color.fromARGB(255, 88, 95, 103),
   ];
-
-  void changeNumber() {
-    setState(() {});
-  }
 
   // void _incrementCounter() {
   //   setState(() {
@@ -68,7 +74,8 @@ class _PieChartScreenState extends State<PieChartScreen> {
                       widget.textbookTitle,
                       widget.textbookNumber,
                       widget.achievenumber,
-                      widget.index),
+                      widget.index
+                      ),
                 );
               },
               icon: Icon(Icons.mode_edit_outline),
@@ -85,7 +92,10 @@ class _PieChartScreenState extends State<PieChartScreen> {
           padding: const EdgeInsets.all(60.0),
           child: Center(
             child: PieChart(
-              dataMap: dataMap,
+              dataMap: <String, double>{
+                "完了": complitenum,
+                "未達成": uncomplitenum,
+                },
               colorList: colorList,
               chartType: ChartType.ring,
               //ここが動的に変わってくれない。どうしたら良いだろうか。
