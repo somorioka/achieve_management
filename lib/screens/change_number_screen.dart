@@ -22,6 +22,11 @@ class _ChangeNumberState extends State<ChangeNumber> {
   int _currentIntValue = 0;
 
   @override
+void initState() {
+_currentIntValue = widget.achievenumber;
+}
+
+  @override
   Widget build(BuildContext context) {
     return Consumer<TextBookData>(builder: (context, textbookData, child) {
       final textbook = textbookData.textbooks[widget.index];
@@ -59,7 +64,10 @@ class _ChangeNumberState extends State<ChangeNumber> {
                   minValue: 0,
                   maxValue: textbook.number,
                   onChanged: (newValue) =>
-                      setState(() => _currentIntValue = newValue)),
+                      setState(
+                        () => _currentIntValue = newValue,
+                      ),
+                      ),
             ),
             const SizedBox(
               height: 20.0,
