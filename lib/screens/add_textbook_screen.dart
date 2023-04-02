@@ -9,7 +9,6 @@ class AddTextBookScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
     String? newTextBookTitle;
     String? newTextBookNumber;
     String? newAchieveNumber;
@@ -37,13 +36,13 @@ class AddTextBookScreen extends StatelessWidget {
             const SizedBox(
               height: 20.0,
             ),
-             TextField(
+            TextField(
               decoration: InputDecoration(
-                  labelText: "教材の名前",
-                  ),
+                labelText: "教材の名前",
+              ),
               autofocus: true,
               textAlign: TextAlign.center,
-              onChanged: (newText){
+              onChanged: (newText) {
                 newTextBookTitle = newText;
               },
             ),
@@ -51,14 +50,14 @@ class AddTextBookScreen extends StatelessWidget {
               height: 20.0,
             ),
             TextField(
-                decoration: InputDecoration(
-                  labelText: "問題orページ数",
-                  ),
+              decoration: InputDecoration(
+                labelText: "問題orページ数",
+              ),
               autofocus: true,
               keyboardType: TextInputType.number,
               inputFormatters: [FilteringTextInputFormatter.digitsOnly],
               textAlign: TextAlign.center,
-              onChanged: (newNumber){
+              onChanged: (newNumber) {
                 newTextBookNumber = newNumber;
               },
             ),
@@ -66,14 +65,14 @@ class AddTextBookScreen extends StatelessWidget {
               height: 20.0,
             ),
             TextField(
-                decoration: InputDecoration(
-                  labelText: "既にクリアした問題数",
-                  ),
+              decoration: InputDecoration(
+                labelText: "既にクリアした問題数",
+              ),
               autofocus: true,
               keyboardType: TextInputType.number,
               inputFormatters: [FilteringTextInputFormatter.digitsOnly],
               textAlign: TextAlign.center,
-              onChanged: (newAchieveNum){
+              onChanged: (newAchieveNum) {
                 newAchieveNumber = newAchieveNum;
               },
             ),
@@ -83,8 +82,12 @@ class AddTextBookScreen extends StatelessWidget {
             ElevatedButton(
                 onPressed: () {
                   //nameやnumberがnullだったときの処理も書く。
-                  final textbook = TextBook(name: newTextBookTitle!, number: int.parse(newTextBookNumber!), achievenumber: int.parse(newAchieveNumber!));
-                  Provider.of<TextBookData>(context, listen: false).addTextBook(textbook.name, textbook.number ,textbook.achievenumber);
+                  final textbook = TextBook(
+                      name: newTextBookTitle!,
+                      number: int.parse(newTextBookNumber!),
+                      achievenumber: int.parse(newAchieveNumber!));
+                  Provider.of<TextBookData>(context, listen: false).addTextBook(
+                      textbook.name, textbook.number, textbook.achievenumber);
                   Navigator.pop(context);
                 },
                 style: ElevatedButton.styleFrom(

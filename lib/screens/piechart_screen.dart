@@ -4,16 +4,15 @@ import 'dart:math' as math;
 
 import 'change_number_screen.dart';
 
-
 class PieChartScreen extends StatefulWidget {
-
   final String textbookTitle;
   final int textbookNumber;
   final int achievenumber;
   final int index;
-  
-  PieChartScreen(this.textbookTitle,this.textbookNumber, this.index, this.achievenumber, {super.key});
 
+  PieChartScreen(
+      this.textbookTitle, this.textbookNumber, this.index, this.achievenumber,
+      {super.key});
 
   @override
   State<PieChartScreen> createState() => _PieChartScreenState();
@@ -32,9 +31,7 @@ class _PieChartScreenState extends State<PieChartScreen> {
   ];
 
   void changeNumber() {
-    setState(() {
-      
-    });
+    setState(() {});
   }
 
   // void _incrementCounter() {
@@ -51,31 +48,33 @@ class _PieChartScreenState extends State<PieChartScreen> {
         child: AppBar(
           leading: IconButton(
             color: Color.fromARGB(31, 18, 18, 18),
-            onPressed: (){
+            onPressed: () {
               Navigator.of(context).pop();
             },
             icon: Icon(Icons.arrow_back_ios),
-            ),
-          title:  Text(
-            widget.textbookTitle,
-           style: TextStyle(
-            color: Colors.black87,
-            fontWeight: FontWeight.bold,
-            fontSize: 16,
-            )
           ),
+          title: Text(widget.textbookTitle,
+              style: TextStyle(
+                color: Colors.black87,
+                fontWeight: FontWeight.bold,
+                fontSize: 16,
+              )),
           actions: [
             IconButton(
-              onPressed: (){
+              onPressed: () {
                 showModalBottomSheet(
-              context: context, builder: (context) => 
-              ChangeNumber(widget.textbookTitle, widget.textbookNumber,widget.achievenumber, widget.index),
-              );
+                  context: context,
+                  builder: (context) => ChangeNumber(
+                      widget.textbookTitle,
+                      widget.textbookNumber,
+                      widget.achievenumber,
+                      widget.index),
+                );
               },
               icon: Icon(Icons.mode_edit_outline),
               color: Colors.black87,
-              ),
-            ],
+            ),
+          ],
           backgroundColor: Colors.white,
           elevation: 2,
         ),
@@ -103,7 +102,7 @@ class _PieChartScreenState extends State<PieChartScreen> {
                 showChartValuesInPercentage: true,
                 showChartValueBackground: false,
               ),
-              ),
+            ),
           ),
         ),
       ),
@@ -112,7 +111,7 @@ class _PieChartScreenState extends State<PieChartScreen> {
       //   tooltip: 'Increment',
       //   child: Icon(Icons.add),
       //   backgroundColor: Color.fromARGB(255, 103, 202, 77),
-      // ), 
+      // ),
     );
   }
 }

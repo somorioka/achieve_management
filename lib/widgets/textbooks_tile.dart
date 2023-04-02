@@ -7,7 +7,11 @@ class TextBookTile extends StatelessWidget {
   int achievenumber;
   final int index;
 
-  TextBookTile({required this.textbookTitle, required this.textbookNumber, required this.achievenumber, required this.index});
+  TextBookTile(
+      {required this.textbookTitle,
+      required this.textbookNumber,
+      required this.achievenumber,
+      required this.index});
 
   @override
   Widget build(BuildContext context) {
@@ -17,12 +21,12 @@ class TextBookTile extends StatelessWidget {
       trailing: Icon(Icons.chevron_right),
       onTap: () {
         Navigator.of(context).push(
-    MaterialPageRoute(
-      builder: (context) =>  PieChartScreen(textbookTitle,textbookNumber, index , achievenumber),
-    ),
-  );
+          MaterialPageRoute(
+            builder: (context) => PieChartScreen(
+                textbookTitle, textbookNumber, index, achievenumber),
+          ),
+        );
       },
     );
   }
 }
-

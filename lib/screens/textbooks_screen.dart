@@ -11,28 +11,26 @@ class TextBooksScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return  Scaffold(
+    return Scaffold(
       floatingActionButton: FloatingActionButton(
         child: const Icon(Icons.add),
         onPressed: () {
           showModalBottomSheet(
-              context: context, builder: (context) => 
-              AddTextBookScreen(),
-              );
+            context: context,
+            builder: (context) => AddTextBookScreen(),
+          );
         },
         backgroundColor: Color.fromARGB(255, 103, 202, 77),
       ),
       appBar: PreferredSize(
         preferredSize: Size.fromHeight(35.0),
         child: AppBar(
-          title: const Text(
-            "やり切る教材",
-           style: TextStyle(
-            color: Colors.black87,
-            fontWeight: FontWeight.bold,
-            fontSize: 16,
-            )
-          ),
+          title: const Text("やり切る教材",
+              style: TextStyle(
+                color: Colors.black87,
+                fontWeight: FontWeight.bold,
+                fontSize: 16,
+              )),
           backgroundColor: Colors.white,
           elevation: 2,
         ),
@@ -41,5 +39,3 @@ class TextBooksScreen extends StatelessWidget {
     );
   }
 }
-
-
